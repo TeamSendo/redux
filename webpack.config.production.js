@@ -9,6 +9,9 @@ config.plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('production')
   }),
+  new webpack.DefinePlugin({
+    __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'false'))
+  })
   new webpack.optimize.UglifyJsPlugin({
     compressor: {
       screw_ie8: true,

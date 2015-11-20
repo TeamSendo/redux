@@ -119,6 +119,9 @@ export default function createStore(reducer, initialState) {
     try {
       isDispatching = true
       currentState = currentReducer(currentState, action)
+    } catch(e) {
+      if (__DEV__)
+        console.error(e)
     } finally {
       isDispatching = false
     }
